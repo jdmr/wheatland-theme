@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>$the_title - $company_name</title>
+        <meta name="description" content="wheatlanddrivingacademy.com">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="/wheatland-theme/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/wheatland-theme/css/bootstrap-responsive.min.css" type="text/css">
+
+        <script src="/wheatland-theme/js/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        <script src="/wheatland-theme/js/jquery-1.8.2.min.js"></script>
+        <script src="/wheatland-theme/js/bootstrap.min.js"></script>
+        
+        $theme.include($top_head_include)
+
+        <link rel="stylesheet" href="/wheatland-theme/css/app.css" type="text/css">
+
+        <script src="/wheatland-theme/js/app.js"></script>
+
+        <style>
+            
+        </style>
+
+</head>
+
+<body class="$css_class">
+
+    #if ($permissionChecker.isOmniadmin() || $permissionChecker.isCompanyAdmin() || $permissionChecker.isCommunityAdmin($community_id))
+        #dockbar()
+    #end
+
+    <div class="container">
+        #if ($has_navigation)
+                #parse ("$full_templates_path/navigation.vm")
+        #end
+
+        <div id="row">
+          #if ($selectable)
+            $theme.include($content_include)
+          #else
+            $portletDisplay.recycle()
+
+            $portletDisplay.setTitle($the_title)
+
+            $theme.wrapPortlet("portlet.vm", $content_include)
+          #end
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <p>Driving School Lincoln, CA - Wheatland Driving Academy</p>
+                    <p>Contact Wheatland Driving Academy today at 530-633-4910 for details</p>
+                    <p>&copy; 2012 Onlineschooling.biz</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    $theme.include($bottom_include)
+</body>
+</html>

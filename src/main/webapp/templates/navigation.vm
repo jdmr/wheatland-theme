@@ -1,0 +1,71 @@
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="row">
+                <div class="span12">
+                    <a class="brand" href="$community_default_url"><img src="/wheatland-theme/images/logo.png" alt="wheatlanddrivingacademy.com" /> Wheatland Driving Academy</a>
+                </div>
+            </div>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    #foreach ($nav_item in $nav_items)
+                        #if ($nav_item.isSelected())
+                            <li class="active">
+                        #else
+                            #if ($nav_item.hasChildren())
+                                <li class="dropdown">
+                            #else
+                                <li>
+                            #end
+                        #end
+                        #if ($nav_item.hasChildren())
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="$nav_item.getURL()" $nav_item.getTarget()><span>$nav_item.icon() $htmlUtil.escape($nav_item.getName()) <b class="caret"></b></span></a>
+                                <ul class="dropdown-menu">
+                                    #foreach ($nav_child in $nav_item.getChildren())
+                                        #if ($nav_child.isSelected())
+                                            <li class="active">
+                                        #else
+                                            <li>
+                                        #end
+                                                <a href="$nav_child.getURL()" $nav_child.getTarget()>$nav_child.getName()</a>
+                                            </li>
+                                    #end
+                                </ul>
+                        #else
+                                <a href="$nav_item.getURL()" $nav_item.getTarget()><span>$nav_item.icon() $htmlUtil.escape($nav_item.getName())</span></a>
+                        #end
+                            </li>
+                    #end
+                </ul>
+                <div class="span6 pull-right" style="text-align: right; margin-top: 7px;">
+                    #if(!$is_signed_in)
+                        <a href="$sign_in_url" >$sign_in_text</a>
+                    #else
+                        <div>
+                            <a href="$my_account_url" >
+                                <img alt="$user_name" src="$portrait_url" style="height:20px;"/>
+                            </a>
+                            <a href="$my_account_url" >
+                                $user_name
+                            </a>
+                            <span class="sign-out" >
+                                (<a href="$sign_out_url" >$sign_out_text</a>)
+                            </span>
+                        </div>
+                    #end
+                    #if ($update_available_url)
+                        <div class="popup-alert-notice">
+                                <a class="update-available" href="$update_available_url" >#language("updates-are-available-for-liferay")</a>
+                        </div>
+                    #end
+                </div>
+
+            </div><!--/.nav-collapse -->
+        </div><!--/container -->
+    </div>
+</div>

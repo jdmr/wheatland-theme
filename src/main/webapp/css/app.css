@@ -1,0 +1,111 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+@import url('http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps');
+
+body {
+    padding-top: 160px;
+    font: 1em/1.625em 'Ubuntu',Tahoma,sans-serif;
+    font-size-adjust:none;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+}
+
+body > .container > .navbar > .navbar-inner {
+  padding: 0;
+  background-image: none;
+  border:0;
+  border-radius:0;
+  box-shadow:0;
+}
+
+body > .footer {
+  margin-top: 20px;
+  padding: 20px 0;
+  background-color: #FAFAFA;
+  color: #777;
+  text-align: center;
+}
+
+.navbar .nav > li > a {
+    border-right: 0;
+    border-left: 0;
+}
+
+.navbar .brand {
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 3em;
+}
+
+/* Desktop large
+------------------------- */
+@media (min-width: 1200px) {
+}
+
+/* Desktop
+------------------------- */
+@media (max-width: 1199px) and (min-width: 981px) {
+
+}
+
+/* Tablet to desktop
+------------------------- */
+@media (min-width: 768px) and (max-width: 980px) {
+  /* Remove any padding from the body */
+  body {
+    padding-top: 0;
+  }
+
+  .navbar .brand {
+      font-size: 2em;
+  }
+}
+
+/* Tablet
+------------------------- */
+@media (max-width: 767px) {
+  /* Remove any padding from the body */
+  body {
+    padding-top: 0;
+  }
+  
+  .navbar .brand {
+      font-size: 1.5em;
+  }
+
+  .brand > img {
+      height: 60px;
+      padding-left: 20px;
+  }
+}
+
+/* Landscape phones
+------------------------- */
+@media (max-width: 480px) {
+  /* Remove padding above jumbotron */
+  body {
+    padding-top: 0;
+  }
+
+  .navbar .brand {
+      font-size: 1.5em;
+  }
+  
+  .brand > img {
+      height: 30px;
+      padding-left: 20px;
+  }
+}
+
+[class^="icon-"],[class*=" icon-"]{
+  background-image:url("/ubuntu-theme/img/glyphicons-halflings.png");
+}
+.icon-white,.nav-tabs>.active>a>[class^="icon-"],.nav-tabs>.active>a>[class*=" icon-"],.nav-pills>.active>a>[class^="icon-"],.nav-pills>.active>a>[class*=" icon-"],.nav-list>.active>a>[class^="icon-"],.nav-list>.active>a>[class*=" icon-"],.navbar-inverse .nav>.active>a>[class^="icon-"],.navbar-inverse .nav>.active>a>[class*=" icon-"],.dropdown-menu>li>a:hover>[class^="icon-"],.dropdown-menu>li>a:hover>[class*=" icon-"],.dropdown-menu>.active>a>[class^="icon-"],.dropdown-menu>.active>a>[class*=" icon-"]{
+  background-image:url("/ubuntu-theme/img/glyphicons-halflings-white.png");
+}
+
+@font-face {
+  src: url('/ubuntu-theme/css/font/fontawesome-webfont.eot');
+  src: url('/ubuntu-theme/css/font/fontawesome-webfont.eot?#iefix') format('eot'), url('/ubuntu-theme/css/font/fontawesome-webfont.woff') format('woff'), url('/ubuntu-theme/css/font/fontawesome-webfont.ttf') format('truetype'), url('/ubuntu-theme/css/font/fontawesome-webfont.svg#FontAwesome') format('svg');
+}
